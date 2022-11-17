@@ -93,6 +93,15 @@ When to use include()
 You should always use include() when you include other URL patterns. admin.site.urls is the only exception to this.
 ```
 
+```
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+```
 ## Go to http://localhost:8000/polls/ in your browser, and you should see the text “Hello, world. You’re at the polls index.”, which you defined in the index view.
 
 The path() function is passed four arguments, two required: route and view, and two optional: kwargs, and name. At this point, it’s worth reviewing what these arguments are for.
